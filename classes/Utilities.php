@@ -2,6 +2,13 @@
 
 class Utilities 
 {
+    const DAYS = [
+        "MONDAY" => 1,
+        "TUESDAY" => 2,
+        "WEDNESDAY" => 3,
+        "THURSDAY" => 4,
+    ];
+
     public static function getCurrentTerm(): Term
     {
         $now = new DateTime();

@@ -1,11 +1,7 @@
 <?php
 
-class Student
+class Student extends AbstractPerson
 {
-    protected $first_name;
-    protected $last_name;
-    protected $date_of_birth;
-    protected $student_id;
     protected $enrolled_date;
     protected $major;
 
@@ -56,17 +52,17 @@ class Student
 
     }
 
-    private function isEnrolled(Course $course)
+    private function isEnrolled(_Class $class)
     {
-        $codes = array_column($this->courses, 'code');
+        $codes = array_column($this->class, 'code');
         return array_search($course->code, $codes);
     }
 
-    public function enroll(Course $course): void
+    public function enroll(_Class $class): void
     {
-        if ($this->isEnrolled($course) !== false) {
+        if ($this->isEnrolled($class) !== false) {
             $name = $this->getNameLastFirst();
-            $msg = "$name is already enrolled in course $course->code.";
+            $msg = "$name is already enrolled in class $course->code.";
             throw new Exception($msg);
         }
         $this->courses[] = $course;
@@ -112,7 +108,17 @@ class Student
         }
     }
 
+    protected function printTermSchedule(Term $term): string
+    {
+        return array_reduce($this->courses, function($str, $course) {
+            $str .= $course->getCourseListing();
+            return $str;
+        }, '');
+    }
 
+    protected function printThisWeekSchedule(): string
+    {
+    }
 
     public function canGraduate(): bool
     {
