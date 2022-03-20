@@ -20,6 +20,22 @@ abstract class AbstractPerson
         $this->id               = $id;
     }
 
-    abstract protected function printTermSchedule(Term $term): string;
-    abstract protected function printThisWeekSchedule(Term $term): string;
+    public function getAge(): int
+    {
+        $now = new DateTime();
+        return $this->date_of_birth->diff($now)->y;
+    }
+
+    public function getNameLastFirst(): string
+    {
+        return "$this->last_name, $this->first_name";
+    }
+
+    public function getDateOfBirth(): string
+    {
+        return $this->date_of_birth->format('d/m/Y');
+    }
+
+    abstract protected function printSchedule(): void;
+    abstract protected function printProfile(): void;
 }

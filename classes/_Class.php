@@ -8,8 +8,8 @@ class _Class
     private $instructor;
     private $room;
 
-    private $days = [];
 
+    private $times = [];
     private $students = [];
 
     public function __construct(
@@ -28,7 +28,12 @@ class _Class
         $this->instructor = $instructor;
     }
 
-    public function setDay(string $dayOfWeek)
+    public function setTime(ClassTime $time)
+    {
+        $this->times[] = $time;
+    }
+
+    public function getTimesString(): string
     {
 
     }
@@ -65,6 +70,18 @@ class _Class
     public function removeStudent(): void
     {
 
+    }
+
+    public function timesOverlap(_Class $other_class): bool
+    {
+        foreach ($this->times as $time) {
+            foreach ($other_class->times as $other_class_time) {
+                if ($time->overlaps($other_class_time)) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
 }

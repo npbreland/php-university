@@ -17,4 +17,9 @@ abstract class AbstractRoom
     {
         return $this->capacity;
     }
+
+    public function getName(): string
+    {
+        return $this->name;
+    }
 }
