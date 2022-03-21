@@ -1,0 +1,13 @@
+{
+    "name": "npbreland/php-university",
+    "description": "University management",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Nick Breland",
+            "email": "npbreland@tutanota.com"
+        }
+    ],
+    "require": {}
+}
