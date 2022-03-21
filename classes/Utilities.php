@@ -2,21 +2,15 @@
 
 class Utilities 
 {
-    const DAYS = [
-        "MONDAY" => 1,
-        "TUESDAY" => 2,
-        "WEDNESDAY" => 3,
-        "THURSDAY" => 4,
-    ];
-
     public static function getCurrentTerm(): Term
     {
         $now = new DateTime();
         $year = $now->format("Y");
+        $next_year = $year + 1;
 
-        $term1_start = new DateTime("$year-01-01");
-        $term2_start = new DateTime("$year-06-01");
-        $term3_start = new DateTime("$year-09-01");
+        $term1_start = new DateTime("$year-09-01");
+        $term2_start = new DateTime("$next_year-01-01");
+        $term3_start = new DateTime("$next_year-06-01");
 
         $term_num = null;
 

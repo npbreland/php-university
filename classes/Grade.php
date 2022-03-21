@@ -16,7 +16,7 @@ class Grade
     ];
 
     public function __construct(
-        AbstractStudent $student,
+        Student $student,
         Course $course,
         string $letter
     )
