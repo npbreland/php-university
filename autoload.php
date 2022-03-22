@@ -7,14 +7,8 @@
 spl_autoload_register(function ($class) {
     $prefix = 'NPBreland\\PHPUni\\';
 
-    var_dump($class);
-
-    echo $prefix;
-
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/classes/';
-
-    print $base_dir;
 
     // does the class use the namespace prefix?
     $len = strlen($prefix);
