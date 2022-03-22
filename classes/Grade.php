@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 class Grade
 {
@@ -22,7 +23,7 @@ class Grade
     )
     {
         if (!in_array($letter, array_keys(self::LETTER_TO_INT))) {
-            throw new Exception("Letter grade must be A, B, C, D, or F");
+            throw new \Exception("Letter grade must be A, B, C, D, or F");
         }
         $this->student = $student;
         $this->course = $course;

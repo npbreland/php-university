@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 class AcademicYear
 {
@@ -7,8 +8,6 @@ class AcademicYear
 
     private $courses = [];
     private $grades = [];
-
-    use GradeCalculatorTrait;
 
     public function __construct(Student $student)
     {

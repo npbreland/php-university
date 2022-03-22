@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 class _Class 
 {
@@ -62,7 +63,7 @@ class _Class
     {
         if (count($this->students) === $this->room->getCapacity()) {
             $msg = "Cannot add student to this class. Room is at capacity.";
-            throw new Exception($msg);
+            throw new \Exception($msg);
         }
         $this->students[] = $student;
     }

@@ -1,5 +1,7 @@
 <?php
 
+namespace NPBreland\PHPUni;
+
 class School {
 
     protected $name;

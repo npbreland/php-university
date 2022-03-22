@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 class Major extends AbstractSpecialization
 {

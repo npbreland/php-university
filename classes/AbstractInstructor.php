@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 abstract class AbstractInstructor extends AbstractPerson
 {
@@ -7,7 +8,7 @@ abstract class AbstractInstructor extends AbstractPerson
     public function __construct(
         string $first_name,
         string $last_name,
-        DateTime $date_of_birth,
+        \DateTime $date_of_birth,
         int $id,
         AcademicDepartment $department
     )

@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 // TODO: Make AbstractStudent parent of Grad/Undergrad
 class Student extends AbstractPerson
@@ -16,7 +17,7 @@ class Student extends AbstractPerson
     public function __construct(
         string $first_name,
         string $last_name,
-        DateTime $date_of_birth,
+        \DateTime $date_of_birth,
         int $id
     )
     {

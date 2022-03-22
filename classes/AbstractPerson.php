@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 abstract class AbstractPerson
 {
@@ -10,8 +11,8 @@ abstract class AbstractPerson
     public function __construct(
         string $first_name,
         string $last_name,
-        DateTime $date_of_birth,
-        int $id,
+        \DateTime $date_of_birth,
+        int $id
     )
     {
         $this->first_name       = $first_name;
@@ -22,7 +23,7 @@ abstract class AbstractPerson
 
     public function getAge(): int
     {
-        $now = new DateTime();
+        $now = new \DateTime();
         return $this->date_of_birth->diff($now)->y;
     }
 

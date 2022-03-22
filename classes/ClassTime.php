@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 class ClassTime
 {
@@ -18,19 +19,19 @@ class ClassTime
     {
         if ($day_of_week < 1 || $day_of_week > 7) {
             $msg = "Day of week must be between 1 (Sunday) and 7 (Saturday).";
-            throw new Exception($msg);
+            throw new \Exception($msg);
         }
         if ($start_hour < 0 || $start_hour > 23) {
-            throw new Exception("Invalid start hour.");
+            throw new \Exception("Invalid start hour.");
         }
         if ($start_minute < 0 || $start_minute > 59) {
-            throw new Exception("Invalid start minute.");
+            throw new \Exception("Invalid start minute.");
         }
         if ($end_hour < 0 || $end_hour > 23) {
-            throw new Exception("Invalid end hour.");
+            throw new \Exception("Invalid end hour.");
         }
         if ($end_minute < 0 || $end_minute > 59) {
-            throw new Exception("Invalid end minute.");
+            throw new \Exception("Invalid end minute.");
         }
         $this->day_of_week  = $day_of_week;
         $this->start_hour   = $start_hour;

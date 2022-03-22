@@ -1,4 +1,5 @@
 <?php
+namespace NPBreland\PHPUni;
 
 class Room extends AbstractRoom
 {
