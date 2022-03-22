@@ -40,28 +40,43 @@ class ClassTime
         $this->end_minute   = $end_minute;
     }
 
-    // TODO: Not finished
+    public static function getTimeToday($hours, $minutes)
+    {
+        $date = new \DateTime();
+        return $date->setTime($hours, $minutes);
+    }
+
+    public function getStartTimeToday()
+    {
+        return self::getTimeToday($this->start_hour, $this->start_minute);
+    }
+    
+    public function getEndTimeToday()
+    {
+        return self::getTimeToday($this->end_hour, $this->end_minute);
+    }
+
+    // Needs testing. Note: assumes classes don't cross midnight
     public function overlaps(ClassTime $other_time): bool
     {
         if ($this->day_of_week !== $other_time->day_of_week) {
             return false;
         }
-        if ($this->start_hour > $other_time->start_hour
-            && $this->end_hour > $other_time->end_hour) {
-            return false;
+
+        $a_start = $this->getStartTimeToday();
+        $a_end = $this->getEndTimeToday();
+
+        $b_start = $other_time->getStartTimeToday();
+        $b_end = $other_time->getEndTimeToday();
+
+        if ($a_start >= $b_start && $a_start <= $b_end) {
+            return true;
         }
-        if ($this->start_hour < $other_time->start_hour
-            && $this->end_hour < $other_time->end_hour) {
-            return false;
+
+        if ($b_start >= $a_start && $b_start <= $a_end) {
+            return true;
         }
-        if ($this->start_minute > $other_time->start_minute
-            && $this->end_minute > $other_time->end_minute) {
-            return false;
-        }
-        if ($this->start_minute < $other_time->start_minute
-            && $this->end_minute < $other_time->end_minute) {
-            return false;
-        }
-        return true;
+
+        return false;
     }
 }
